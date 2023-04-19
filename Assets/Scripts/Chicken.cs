@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Chicken : MonoBehaviour
 {
+    [Header("Movement")]
     public float walkSpeed = 0.5f;
     public float runSpeed = 1f;
     public float rotationSpeed = 2f;
@@ -18,6 +20,16 @@ public class Chicken : MonoBehaviour
     public Transform player;
     private Animator animator;
     private Rigidbody rb;
+
+    [Header("Capture")]
+    public float maxCaptureProgress = 100f;
+    public float captureDecreaseRate = 1f;
+    
+    public GameObject captureProgressMeter;
+    public GameObject eggPrefab;
+    public ParticleSystem chickenParticlePrefab;
+    private float captureProgress = 0f;
+    private bool isCapturing = false;
 
     private void Start()
     {
@@ -36,6 +48,21 @@ public class Chicken : MonoBehaviour
         {
             RandomMovement();
         }
+
+        captureProgressMeter.GetComponent<Image>().fillAmount = captureProgress / maxCaptureProgress;
+    }
+
+    private void FixedUpdate()
+    {
+        if (captureProgress > 0 && !isCapturing)
+        {
+            captureProgress -= captureDecreaseRate * Time.deltaTime;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        captureProgressMeter.transform.LookAt(transform.position + Camera.main.transform.forward);
     }
 
     private void RunAway()
@@ -113,5 +140,25 @@ public class Chicken : MonoBehaviour
         yield return new WaitForSeconds(time);
         isRotatingRight = false;
         yield return new WaitForSeconds(1);
+    }
+
+    // Increase the capture progress and possibly lay an egg
+    public void Capturing(float captureRate)
+    {
+        isCapturing = true;
+        captureProgress += captureRate;
+        captureProgress = Mathf.Clamp(captureProgress, 0f, maxCaptureProgress);
+
+        if (captureProgress >= maxCaptureProgress)
+        {
+            Instantiate(chickenParticlePrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        else if (captureProgress >= maxCaptureProgress / 3f && Random.Range(0, 1500) < 1)
+        {
+            GameObject egg = Instantiate(eggPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+        }
+
+        isCapturing = false;
     }
 }
