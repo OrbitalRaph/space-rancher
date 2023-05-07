@@ -58,6 +58,8 @@ public class Chicken : MonoBehaviour
         {
             captureProgress -= captureDecreaseRate * Time.deltaTime;
         }
+
+        rb.AddForce(Physics.gravity * 0.2f, ForceMode.Acceleration);
     }
 
     private void LateUpdate()
@@ -154,9 +156,10 @@ public class Chicken : MonoBehaviour
             Instantiate(chickenParticlePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else if (captureProgress >= maxCaptureProgress / 3f && Random.Range(0, 1500) < 1)
+        
+        if (captureProgress >= maxCaptureProgress / 3f && Random.Range(0, 200) < 1)
         {
-            GameObject egg = Instantiate(eggPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+            GameObject egg = Instantiate(eggPrefab, transform.position + Vector3.up * 0.3f, Quaternion.identity);
         }
 
         isCapturing = false;

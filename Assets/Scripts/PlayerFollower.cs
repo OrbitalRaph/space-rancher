@@ -15,7 +15,7 @@ public class PlayerFollower : MonoBehaviour
 
     void Update()
     {
-        follower.transform.position = new Vector3(player.transform.position.x, 0, player.transform.position.z);
+        follower.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         follower.transform.rotation = new Quaternion(0, player.transform.rotation.y, 0, player.transform.rotation.w);
 
     }

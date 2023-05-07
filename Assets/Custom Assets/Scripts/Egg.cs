@@ -8,6 +8,12 @@ public class Egg : MonoBehaviour
     public float impactForceThreshold = 10f;
     public GameObject explosionPrefab;
 
+    void Start()
+    {
+        // Ignore collisions between eggs and chickens
+        Physics.IgnoreLayerCollision(6, 6);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -20,12 +26,6 @@ public class Egg : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Egg does not collide with chickens
-        if (collision.gameObject.CompareTag("Chicken"))
-        {
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
-        }
-
         // If the egg is hit by a force greater than the threshold, it will explode
         if (collision.impulse.magnitude > impactForceThreshold)
         {
