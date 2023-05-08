@@ -51,6 +51,9 @@ public class CaptureGun : MonoBehaviour
             if (rightHand.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue) && triggerValue > 0.5f)
             {
                 VacuumEffect.SetActive(true);
+                // play the vacuum sound
+                GetComponent<AudioSource>().Play();
+
                 eggOcclusionValue = 0f;
                 Collider[] colliders = Physics.OverlapBox(transform.position + transform.forward * offsetZ + transform.up * offsetY + transform.right * offsetX, new Vector3(captureWidth, captureHeight, captureRange) / 2, transform.rotation, chickenLayer);
                 foreach (Collider col in colliders)
@@ -83,6 +86,7 @@ public class CaptureGun : MonoBehaviour
             else
             {
                 VacuumEffect.SetActive(false);
+                GetComponent<AudioSource>().Stop();
             }
         }
 
