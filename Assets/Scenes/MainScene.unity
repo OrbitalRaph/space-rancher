@@ -2406,12 +2406,12 @@ GameObject:
   - component: {fileID: 129916415}
   - component: {fileID: 129916414}
   - component: {fileID: 129916413}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CoopForcefield2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &129916412
 Transform:
@@ -2437,7 +2437,7 @@ BoxCollider:
   m_GameObject: {fileID: 129916411}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5239,12 +5239,12 @@ GameObject:
   m_Component:
   - component: {fileID: 316003158}
   - component: {fileID: 316003159}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &316003158
 Transform:
@@ -7092,12 +7092,12 @@ GameObject:
   - component: {fileID: 469707189}
   - component: {fileID: 469707188}
   - component: {fileID: 469707187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CoopForcefield3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &469707186
 Transform:
@@ -7123,7 +7123,7 @@ BoxCollider:
   m_GameObject: {fileID: 469707185}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -16562,11 +16562,11 @@ ParticleSystemForceField:
   m_Enabled: 1
   m_Parameters:
     m_Shape: 3
-    m_StartRange: 0
-    m_EndRange: 4
+    m_StartRange: 1
+    m_EndRange: 5
     m_Length: 1
     m_GravityFocus: 0
-    m_RotationRandomness: {x: 0.1, y: 0.1}
+    m_RotationRandomness: {x: 0.3, y: 0.3}
     m_DirectionCurveX:
       serializedVersion: 2
       minMaxState: 0
@@ -16623,7 +16623,7 @@ ParticleSystemForceField:
     m_DirectionCurveY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 20
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -16729,7 +16729,7 @@ ParticleSystemForceField:
     m_GravityCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -16782,7 +16782,7 @@ ParticleSystemForceField:
     m_RotationSpeedCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -17754,7 +17754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036427648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.33, y: -0.67, z: 0.65}
+  m_LocalPosition: {x: 6.33, y: -0.67, z: 1.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21421,7 +21421,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -21594,7 +21594,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 512
     maxCollisionShapes: 256
     quality: 1
     voxelSize: 0.5
@@ -22944,12 +22944,12 @@ GameObject:
   - component: {fileID: 1051256904}
   - component: {fileID: 1051256903}
   - component: {fileID: 1051256902}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CoopForcefield1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1051256902
 BoxCollider:
@@ -22960,7 +22960,7 @@ BoxCollider:
   m_GameObject: {fileID: 1051256901}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -30316,6 +30316,12 @@ MonoBehaviour:
   m_Teleporting:
     m_PersistentCalls:
       m_Calls: []
+--- !u!82 &1370375260 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2476091061671805716, guid: 95ad83deb1e92054d99a660512f17715,
+    type: 3}
+  m_PrefabInstance: {fileID: 1610033521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1383613505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34566,6 +34572,21 @@ PrefabInstance:
       propertyPath: weaponSlot
       value: 
       objectReference: {fileID: 1900364038}
+    - target: {fileID: 2476091061671805716, guid: 95ad83deb1e92054d99a660512f17715,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476091061671805716, guid: 95ad83deb1e92054d99a660512f17715,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476091061671805716, guid: 95ad83deb1e92054d99a660512f17715,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5826532724895577502, guid: 95ad83deb1e92054d99a660512f17715,
         type: 3}
       propertyPath: m_Name
@@ -34628,14 +34649,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6637577379186985164, guid: 95ad83deb1e92054d99a660512f17715,
         type: 3}
-      propertyPath: captureSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6637577379186985164, guid: 95ad83deb1e92054d99a660512f17715,
-        type: 3}
-      propertyPath: eggGravitationalPull
-      value: 0.5
-      objectReference: {fileID: 0}
+      propertyPath: vacuumSound
+      value: 
+      objectReference: {fileID: 1370375260}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ad83deb1e92054d99a660512f17715, type: 3}
 --- !u!1 &1617549672 stripped
@@ -42314,12 +42330,12 @@ GameObject:
   - component: {fileID: 1998399734}
   - component: {fileID: 1998399733}
   - component: {fileID: 1998399732}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CoopForcefield4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1998399732
 BoxCollider:
@@ -42330,7 +42346,7 @@ BoxCollider:
   m_GameObject: {fileID: 1998399731}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

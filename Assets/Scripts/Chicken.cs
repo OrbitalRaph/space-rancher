@@ -14,8 +14,8 @@ public class Chicken : MonoBehaviour
     public float runSpeed = 1f;
     public float rotationSpeed = 2f;
     public float distanceTrigger = 1f;
-    public float distanceToPlayer;
     public float distanceMax = 4f;
+    private float distanceToPlayer;
     private bool isRunningAway = false;
     private bool isWalking = false;
     private bool isRotatingLeft = false;

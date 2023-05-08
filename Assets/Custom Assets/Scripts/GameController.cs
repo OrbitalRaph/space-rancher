@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public int numChickensCaptured = 0;
     public int numChickensToCatch = 10;
-    public bool isGameOver = false;
     public GameObject[] ChickenSpawners;
 
     void Start()
@@ -35,8 +35,7 @@ public class GameController : MonoBehaviour
         Debug.Log("Chickens Captured: " + numChickensCaptured);
         if (numChickensCaptured >= numChickensToCatch)
         {
-            isGameOver = true;
-            Debug.Log("Game Over!");
+            SceneManager.LoadScene("EndScene");
         }
     }
 }

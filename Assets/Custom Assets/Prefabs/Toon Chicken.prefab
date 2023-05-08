@@ -435,12 +435,12 @@ MonoBehaviour:
   walkSpeed: 0.5
   runSpeed: 1
   rotationSpeed: 2
-  distanceTrigger: 2
+  distanceTrigger: 5
   distanceToPlayer: 0
   distanceMax: 4
   player: {fileID: 0}
   maxCaptureProgress: 100
-  captureDecreaseRate: 10
+  captureDecreaseRate: 12
   captureProgressMeter: {fileID: 734357510331941876}
   eggPrefab: {fileID: 6270634169144452813, guid: fe59b90e95ba0b841872e3c4e61e64c8,
     type: 3}

@@ -21,11 +21,13 @@ public class CaptureGun : MonoBehaviour
     public XRNode rightHandController;
     private InputDevice rightHand;
     private Rigidbody gunRb;
+    private AudioSource vacuumSound;
 
     // Start is called before the first frame update
     void Start()
     {
         gunRb = GetComponent<Rigidbody>();
+        vacuumSound = GetComponent<AudioSource>();
         currentCaptureSpeed = captureSpeed;
         VacuumEffect.SetActive(false);
         Physics.IgnoreLayerCollision(7, 8);
@@ -52,7 +54,8 @@ public class CaptureGun : MonoBehaviour
             {
                 VacuumEffect.SetActive(true);
                 // play the vacuum sound
-                GetComponent<AudioSource>().Play();
+                if (!vacuumSound.isPlaying)
+                    vacuumSound.Play();
 
                 eggOcclusionValue = 0f;
                 Collider[] colliders = Physics.OverlapBox(transform.position + transform.forward * offsetZ + transform.up * offsetY + transform.right * offsetX, new Vector3(captureWidth, captureHeight, captureRange) / 2, transform.rotation, chickenLayer);
@@ -86,7 +89,8 @@ public class CaptureGun : MonoBehaviour
             else
             {
                 VacuumEffect.SetActive(false);
-                GetComponent<AudioSource>().Stop();
+                if (vacuumSound.isPlaying)
+                    vacuumSound.Stop();
             }
         }
 
