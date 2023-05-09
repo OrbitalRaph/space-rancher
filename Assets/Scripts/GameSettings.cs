@@ -10,6 +10,7 @@ public class GameSettings : MonoBehaviour
     public GameObject boutonFacile;
     public GameObject boutonMoyen;
     public GameObject boutonDifficile;
+    public GameObject audioMixer;
 
 
     void Update()
@@ -23,10 +24,12 @@ public class GameSettings : MonoBehaviour
         if (caseACocher.GetComponent<UnityEngine.UI.Toggle>().isOn)
         {
             musiqueEtSon = false;
+            audioMixer.GetComponent<UnityEngine.Audio.AudioMixer>().SetFloat("Volume", 0);
         }
         else
         {
-            musiqueEtSon = false;
+            musiqueEtSon = true;
+            audioMixer.GetComponent<UnityEngine.Audio.AudioMixer>().SetFloat("Volume", -80);
         }
     }
 
