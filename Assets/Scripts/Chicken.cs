@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Chicken : MonoBehaviour
 {
+
+    public delegate void ChickenCaptureEvent();
+    public static event ChickenCaptureEvent OnChickenCaptured;
+
     [Header("Movement")]
     public float walkSpeed = 0.5f;
     public float runSpeed = 1f;
@@ -152,7 +156,8 @@ public class Chicken : MonoBehaviour
         captureProgress = Mathf.Clamp(captureProgress, 0f, maxCaptureProgress);
 
         if (captureProgress >= maxCaptureProgress)
-        {
+        {   
+            OnChickenCaptured?.Invoke();
             Instantiate(chickenParticlePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -160,6 +165,12 @@ public class Chicken : MonoBehaviour
         if (captureProgress >= maxCaptureProgress / 3f && Random.Range(0, 200) < 1)
         {
             GameObject egg = Instantiate(eggPrefab, transform.position + Vector3.up * 0.3f, Quaternion.identity);
+        }
+
+        // The chicken screams occasionally
+        if (Random.Range(0, 100) < 1)
+        {
+            GetComponent<AudioSource>().Play();
         }
 
         isCapturing = false;
