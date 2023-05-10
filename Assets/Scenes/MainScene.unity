@@ -30443,7 +30443,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numChickensCaptured: 0
   numChickensToCatch: 10
-  isGameOver: 0
   ChickenSpawners:
   - {fileID: 1653462199}
   - {fileID: 1303343277}
@@ -31603,7 +31602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451891224}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -20.7, y: -0.26, z: 15.09}
+  m_LocalPosition: {x: -20.7, y: -1.24, z: 15.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

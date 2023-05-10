@@ -7,12 +7,14 @@ using UnityEngine.Audio;
 public class GameController : MonoBehaviour
 {
     public int numChickensCaptured = 0;
-    public int numChickensToCatch = GameSettings.nombreDePoulet;
+    public int numChickensToCatch = 10;
     public GameObject[] ChickenSpawners;
     public AudioMixer audioMixer;
 
     void Start()
     {
+        numChickensToCatch = GameSettings.nombreDePoulet;
+
         for (int i = 0; i < GameSettings.nombreDePoulet; i++)
         {
             int randomIndex = Random.Range(0, ChickenSpawners.Length);
