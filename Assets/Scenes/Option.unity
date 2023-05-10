@@ -406,7 +406,7 @@ RectTransform:
   m_Children:
   - {fileID: 1480812202}
   m_Father: {fileID: 1967926947}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -743,7 +743,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 339038470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1967926948}
+        m_TargetAssemblyTypeName: GameSettings, Assembly-CSharp
+        m_MethodName: Moyen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &339038470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2051,7 +2063,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 966999025}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1967926948}
+        m_TargetAssemblyTypeName: GameSettings, Assembly-CSharp
+        m_MethodName: Difficile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &966999025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3693,7 +3717,7 @@ RectTransform:
   - {fileID: 875346143}
   - {fileID: 566279421}
   m_Father: {fileID: 1967926947}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3877,8 +3901,8 @@ RectTransform:
   - {fileID: 224236195}
   - {fileID: 1816413136}
   - {fileID: 1266568362}
-  - {fileID: 226791114}
   - {fileID: 1820384135}
+  - {fileID: 226791114}
   - {fileID: 2017069551}
   - {fileID: 339038472}
   - {fileID: 966999027}
@@ -3903,9 +3927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caseACocher: {fileID: 1820384134}
-  boutonFacile: {fileID: 2017069547}
-  boutonMoyen: {fileID: 339038468}
-  boutonDifficile: {fileID: 966999023}
+  textDifficulte: {fileID: 1266568363}
+  audioMixer: {fileID: 24100000, guid: 4d018d791e9b8e54e9f952de8d775b24, type: 2}
 --- !u!1 &1971166835
 GameObject:
   m_ObjectHideFlags: 0
@@ -4197,7 +4220,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2017069549}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1967926948}
+        m_TargetAssemblyTypeName: GameSettings, Assembly-CSharp
+        m_MethodName: Facile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2017069549
 MonoBehaviour:
   m_ObjectHideFlags: 0

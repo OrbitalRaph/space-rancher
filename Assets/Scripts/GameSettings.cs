@@ -1,60 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.Audio;
 
 public class GameSettings : MonoBehaviour
 {
-    public static int nombreDePoulet = 0;
+    public static int nombreDePoulet = 6;
     public static bool musiqueEtSon = true;
     public GameObject caseACocher;
-    public GameObject boutonFacile;
-    public GameObject boutonMoyen;
-    public GameObject boutonDifficile;
-    public GameObject audioMixer;
+    public TMP_Text textDifficulte;
+    private string difficulter = "Facile";
 
 
     void Update()
     {
-        VerifierSon();
-        VerifierDifficulte();
+        SetTextDifficulter();
+
+        
     }
 
-    void VerifierSon()
+    public void MusicAndSound()
     {
-        if (caseACocher.GetComponent<UnityEngine.UI.Toggle>().isOn)
+        switch (musiqueEtSon)
         {
-            musiqueEtSon = false;
-            audioMixer.GetComponent<UnityEngine.Audio.AudioMixer>().SetFloat("Volume", 0);
-        }
-        else
-        {
-            musiqueEtSon = true;
-            audioMixer.GetComponent<UnityEngine.Audio.AudioMixer>().SetFloat("Volume", -80);
+            case true:
+                musiqueEtSon = false;
+                break;
+            case false:
+                musiqueEtSon = true;
+                break;
         }
     }
 
-    void VerifierDifficulte()
+    void SetTextDifficulter()
     {
-        if (boutonFacile.GetComponent<UnityEngine.UI.Toggle>().isOn)
-        {
-            nombreDePoulet = 4;
-            boutonFacile.GetComponent<UnityEngine.UI.Toggle>().interactable = false;
-            boutonMoyen.GetComponent<UnityEngine.UI.Toggle>().interactable = true;
-            boutonDifficile.GetComponent<UnityEngine.UI.Toggle>().interactable = true;
-        }
-        else if (boutonMoyen.GetComponent<UnityEngine.UI.Toggle>().isOn)
-        {
-            nombreDePoulet = 8;
-            boutonFacile.GetComponent<UnityEngine.UI.Toggle>().interactable = true;
-            boutonMoyen.GetComponent<UnityEngine.UI.Toggle>().interactable = false;
-            boutonDifficile.GetComponent<UnityEngine.UI.Toggle>().interactable = true;
-        }
-        else if (boutonDifficile.GetComponent<UnityEngine.UI.Toggle>().isOn)
-        {
-            nombreDePoulet = 14;
-            boutonFacile.GetComponent<UnityEngine.UI.Toggle>().interactable = true;
-            boutonMoyen.GetComponent<UnityEngine.UI.Toggle>().interactable = true;
-            boutonDifficile.GetComponent<UnityEngine.UI.Toggle>().interactable = false;
-        }
+        textDifficulte.text = "Difficulté : " + difficulter;
+    }
+
+    public void Facile()
+    {
+        nombreDePoulet = 6;
+        difficulter = "Facile";
+    }
+
+    public void Moyen()
+    {
+        nombreDePoulet = 10;
+        difficulter = "Moyen";
+    }
+
+    public void Difficile()
+    {
+        nombreDePoulet = 15;
+        difficulter = "Difficile";
     }
 }

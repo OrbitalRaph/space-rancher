@@ -35,7 +35,6 @@ public class Armes : MonoBehaviour
     {
         if (!inHand)
         {
-            print("Pas dans la main");
             weapon.transform.parent = weaponSlot.transform;
             weapon.transform.localPosition = Vector3.zero; 
             weapon.transform.localRotation = rotation;
