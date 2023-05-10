@@ -9,10 +9,11 @@ public class ProgressUICount : MonoBehaviour
 {
     private TMP_Text text;
     public int count = 0;
-    public int maxCount = 10;
+    public int maxCount;
 
     void Start()
     {
+        maxCount = GameSettings.nombreDePoulet;
         text = GetComponent<TMP_Text>();
         text.text = count + "/" + maxCount;
     }

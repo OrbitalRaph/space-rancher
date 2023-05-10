@@ -10,14 +10,11 @@ public class Egg : MonoBehaviour
 
     void Start()
     {
-        // Ignore collisions between eggs and chickens
         Physics.IgnoreLayerCollision(6, 6);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Destroy the egg if it falls off the map
         if (transform.position.y < -10)
         {
             Destroy(gameObject);
@@ -26,7 +23,6 @@ public class Egg : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // If the egg is hit by a force greater than the threshold, it will explode
         if (collision.impulse.magnitude > impactForceThreshold)
         {
             GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);

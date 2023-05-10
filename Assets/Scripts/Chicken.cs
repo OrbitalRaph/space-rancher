@@ -148,7 +148,6 @@ public class Chicken : MonoBehaviour
         yield return new WaitForSeconds(1);
     }
 
-    // Increase the capture progress and possibly lay an egg
     public void Capturing(float captureRate)
     {
         isCapturing = true;
@@ -167,7 +166,6 @@ public class Chicken : MonoBehaviour
             GameObject egg = Instantiate(eggPrefab, transform.position + Vector3.up * 0.3f, Quaternion.identity);
         }
 
-        // The chicken screams occasionally
         if (Random.Range(0, 100) < 1)
         {
             GetComponent<AudioSource>().Play();

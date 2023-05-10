@@ -6,7 +6,6 @@ public class ChickenTank : MonoBehaviour
 {
     private ParticleSystem particles;
 
-    // Start is called before the first frame update
     void Start()
     {
         particles = GetComponent<ParticleSystem>();

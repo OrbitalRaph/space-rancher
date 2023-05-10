@@ -23,7 +23,6 @@ public class CaptureGun : MonoBehaviour
     private Rigidbody gunRb;
     private AudioSource vacuumSound;
 
-    // Start is called before the first frame update
     void Start()
     {
         gunRb = GetComponent<Rigidbody>();
@@ -39,7 +38,6 @@ public class CaptureGun : MonoBehaviour
         rightHand = InputDevices.GetDeviceAtXRNode(rightHandController);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!rightHand.isValid)
@@ -47,13 +45,13 @@ public class CaptureGun : MonoBehaviour
             InitController();
         }
 
-        //if the gun is being held and the trigger is pressed, capture chickens and eggs
+        
         if (gunRb.isKinematic)
         {
             if (rightHand.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue) && triggerValue > 0.5f)
             {
                 VacuumEffect.SetActive(true);
-                // play the vacuum sound
+                
                 if (!vacuumSound.isPlaying)
                     vacuumSound.Play();
 
@@ -72,14 +70,11 @@ public class CaptureGun : MonoBehaviour
                     if (egg != null)
                     {
                         eggOcclusionValue += egg.occlusionValue;
-                        // pull the egg towards the gun and counter the world gravity to male it float
                         egg.GetComponent<Rigidbody>().AddForce((transform.position - egg.transform.position).normalized * eggGravitationalPull);
                         egg.GetComponent<Rigidbody>().AddForce(Vector3.up * 9.81f * 1.5f);
 
                     }
                 }
-
-                // Update capture speed based on occlusion, cannot go under 0
                 currentCaptureSpeed = captureSpeed - eggOcclusionValue * captureSpeed;
                 if (currentCaptureSpeed < 0)
                 {
@@ -96,7 +91,6 @@ public class CaptureGun : MonoBehaviour
 
     }
 
-    // Draw the capture range in the editor
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
